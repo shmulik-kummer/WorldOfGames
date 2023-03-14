@@ -1,15 +1,38 @@
-# This function has a person name as an input and returns a string in the following layout:
-def welcome(name: str):
-    return f"Hello {name} and welcome to the World of Games (WoG).Here you can find many cool games to play"
+def welcome(name: str) -> str:
+    """
+    This function takes a person's name as an input and returns a string welcoming them to the World of Games.
+    """
+    return f"Hello {name} and welcome to the World of Games (WoG). Here you can find many cool games to play."
 
 
-def load_game():
-    # prints out the following text:
-    choose_game = int(input("Please choose a game to play:"
-                            "\n1. Memory Game - a sequence of numbers will appear for 1 second and you have "
-                            "to guess it back"
-                            "\n2. Guess Game - guess a number and see if you chose like the computer"
-                            "\n3. Currency Roulette - try and guess the value of a random amount of USD in ILS:\n"))
+def load_game() -> tuple[int, int]:
+    """
+    This function prompts the user to choose a game to play and returns the user's choice and game difficulty as a
+    tuple.
+    """
+    print("Please choose a game to play:")
+    print("1. Memory Game - a sequence of numbers will appear for 1 second and you have to guess it back")
+    print("2. Guess Game - guess a number and see if you chose like the computer")
+    print("3. Currency Roulette - try and guess the value of a random amount of USD in ILS:")
 
-    # Get the level of difficulty
-    game_level = int(input("Please choose game difficulty from 1 to 5: "))
+    while True:
+        try:
+            choice = int(input())
+            if choice in [1, 2, 3]:
+                break
+        except ValueError:
+            pass
+        print("Invalid choice. Please enter 1, 2, or 3: ")
+
+    print("Please choose game difficulty from 1 to 5: ")
+
+    while True:
+        try:
+            level = int(input())
+            if 1 <= level <= 5:
+                break
+        except ValueError:
+            pass
+        print("Invalid level. Please enter a number between 1 and 5: ")
+
+    return choice, level
