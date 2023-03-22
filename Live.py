@@ -10,8 +10,7 @@ def welcome(name: str) -> str:
 
 def load_game():
     """
-    This function prompts the user to choose a game to play and returns the user's choice and game difficulty as a
-    tuple.
+    This function prompts the user to choose a game to play and start the relevant game.
     """
     print("Please choose a game to play:")
     print("1. Memory Game - a sequence of numbers will appear for 1 second and you have to guess it back")
