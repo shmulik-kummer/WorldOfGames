@@ -1,3 +1,6 @@
+import MemoryGame
+
+
 def welcome(name: str) -> str:
     """
     This function takes a person's name as an input and returns a string welcoming them to the World of Games.
@@ -5,7 +8,7 @@ def welcome(name: str) -> str:
     return f"Hello {name} and welcome to the World of Games (WoG). Here you can find many cool games to play."
 
 
-def load_game() -> tuple[int, int]:
+def load_game():
     """
     This function prompts the user to choose a game to play and returns the user's choice and game difficulty as a
     tuple.
@@ -35,4 +38,8 @@ def load_game() -> tuple[int, int]:
             pass
         print("Invalid level. Please enter a number between 1 and 5: ")
 
-    return choice, level
+    if choice == 1:
+        MemoryGame.play(level)
+
+
+
