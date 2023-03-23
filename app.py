@@ -27,9 +27,9 @@ def process_guess():
 
     # Compare the guesses with the numbers
     if MemoryGame.is_list_equal(numbers, guesses):
-        return "You won"
+        return render_template("memoryWin.html")
     else:
-        return "You lose"
+        return render_template("memoryLose.html")
 
 
 if __name__ == '__main__':
