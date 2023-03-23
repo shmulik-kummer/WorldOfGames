@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Memory Game</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='memoryGame.js') }}"></script>
 </head>
 <body>
     <h1>Memory Game</h1>
@@ -10,6 +11,6 @@
     <p>Game level: {{ level }}</p>
 
 <!--    Print the list of numbers generated -->
-    <p>The numbers are: {{numbers}}</p>
+    <p id="numbers">The numbers are: {{ numbers }}</p>
 </body>
 </html>
