@@ -34,7 +34,8 @@ def generate_sequence(difficulty):
     generate a list of random numbers between 1 and 101. The list
     length will be difficulty.
     """
-    return [random.randint(1, 101) for _ in range(difficulty)]
+    numbers = [random.randint(1, 101) for _ in range(difficulty)]
+    return numbers
 
 
 def get_list_from_user(difficulty):
