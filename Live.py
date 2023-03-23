@@ -1,3 +1,4 @@
+import GuessGame
 import MemoryGame
 
 
@@ -39,6 +40,5 @@ def load_game():
 
     if choice == 1:
         MemoryGame.play(level)
-
-
-
+    elif choice == 2:
+        GuessGame.play(level)
