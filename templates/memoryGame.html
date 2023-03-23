@@ -10,7 +10,18 @@
 <!--    Display the game level-->
     <p>Game level: {{ level }}</p>
 
-<!--    Print the list of numbers generated -->
+<!--    Print the list of numbers generated and clear the list after 0.7 seconds -->
     <p id="numbers">The numbers are: {{ numbers }}</p>
+
+<!--Ask the user to guess and submit the list of numbers-->
+<form action="/guess" method="POST">
+    <input type="hidden" name="numbers" value="{{ numbers }}">
+    {% for i in range(level) %}
+        <label for="guess{{ i }}">Guess {{ i+1 }}:</label>
+        <input type="number" id="guess{{ i }}" name="guesses[]" min="1" max="100">
+        <br>
+    {% endfor %}
+    <input type="submit" value="Submit Guesses">
+</form>
 </body>
 </html>

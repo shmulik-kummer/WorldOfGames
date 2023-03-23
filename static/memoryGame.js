@@ -1,5 +1,6 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
+
   // Get the <p> element containing the numbers
   var numbersEl = document.getElementById('numbers');
 
