@@ -15,7 +15,9 @@ def play():
     choice = int(request.form['game'])
     level = int(request.form['level'])
 
+    # Memory game
     if choice == 1:
+        # Generate list of random numbers according to difficulty level
         random_numbers = MemoryGame.generate_sequence(level)
         return render_template('memoryGame.html', level=level, numbers=random_numbers)
 

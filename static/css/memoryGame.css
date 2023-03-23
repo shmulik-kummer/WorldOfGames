@@ -9,6 +9,10 @@ h1 {
     color: #007bff;
 }
 
+#numbers {
+    font-size: 40px;
+}
+
 label {
     font-weight: bold;
     display: inline-block;
