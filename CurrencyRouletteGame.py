@@ -1,12 +1,12 @@
 import random
-
 import requests
 
+API_URL = "https://api.apilayer.com/exchangerates_data/convert"
+API_KEY = "0fkkBNrT2NJZBItjUloDRCGShJW9uWEg"
+MONEY_RANGE_DIFFICULTY_FACTOR = 5
 
-def get_converted_amount(from_cur: str, to_curr: str, amount: int) -> float:
-    # set API endpoint and parameters
-    url = "https://api.apilayer.com/exchangerates_data/convert"
 
+def get_converted_amount(from_cur: str, to_curr: str, amount: int) -> float | None:
     params = {
         "from": from_cur,
         "to": to_curr,
@@ -14,23 +14,34 @@ def get_converted_amount(from_cur: str, to_curr: str, amount: int) -> float:
     }
 
     headers = {
-        "apikey": "0fkkBNrT2NJZBItjUloDRCGShJW9uWEg"
+        "apikey": API_KEY
     }
 
-    # make API request
-    response = requests.get(url, headers=headers, params=params)
+    try:
+        response = requests.get(API_URL, headers=headers, params=params)
+        response.raise_for_status()
 
-    # parse response JSON and get exchange rate
+    except requests.exceptions.RequestException as e:
+        print("An error occurred while retrieving exchange rate data:", e)
+        return None
+
     return round(response.json()["result"], 2)
 
 
 def get_money_interval(difficulty: int, converted_amount: float) -> tuple:
-    # Interval range
-    interval_rate = converted_amount - (5 - difficulty), converted_amount + (5 - difficulty)
-    return interval_rate
+    """
+    Calculate the money interval for the given difficulty and converted amount.
+    """
+    money_range = MONEY_RANGE_DIFFICULTY_FACTOR - difficulty
+    interval_start = converted_amount - money_range
+    interval_end = converted_amount + money_range
+    return interval_start, interval_end
 
 
 def generate_number():
+    """
+    Generate number between 1-100
+    """
     return random.randint(1, 100)
 
 
@@ -39,7 +50,12 @@ def get_guess_from_user(gen_number: float) -> float:
     prompt a guess from the user to enter a guess of
     value to a given amount of USD
     """
-    return float(input(f"Guess the value in NIS for {gen_number} USD: "))
+    while True:
+        try:
+            user_guess = float(input(f"Guess the value in NIS for {gen_number} USD: "))
+            return user_guess
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 
 def compare_results(user_guess: float, money_interval: tuple):
