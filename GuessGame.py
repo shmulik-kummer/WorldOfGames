@@ -29,11 +29,14 @@ def generate_number(difficulty):
 
 def get_guess_from_user(difficulty):
     """
-    prompt the user for a number between 1 to difficulty and
-    return the number.
+    Prompt the user for a number between 1 and `difficulty` and return the number.
     """
-    number = int(input(f"Choose a number between 1 to {difficulty}: "))
-    return number
+    while True:
+        guess = input(f"Guess a number between 1 and {difficulty}: ")
+        if guess.isdigit() and 1 <= int(guess) <= difficulty:
+            return int(guess)
+        else:
+            print(f"Please enter a valid integer between 1 and {difficulty}.")
 
 
 def compare_results(user_guess, rand_number):
