@@ -84,6 +84,3 @@ def play(difficulty: int):
     else:
         print(f"You lost. your guess {user_guess} NIS was outside the interval {money_interval}")
         return False
-
-
-play(3)
