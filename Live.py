@@ -1,3 +1,4 @@
+import CurrencyRouletteGame
 import GuessGame
 import MemoryGame
 
@@ -42,3 +43,5 @@ def load_game():
         MemoryGame.play(level)
     elif choice == 2:
         GuessGame.play(level)
+    else:
+        CurrencyRouletteGame.play(level)
