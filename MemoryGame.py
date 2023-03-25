@@ -19,12 +19,4 @@ def is_list_equal(rand_list, user_list):
     Compare two lists if they are equal. The function will return
     True / False.
     """
-
-    if len(rand_list) != len(user_list):
-        return False
-
-    for i in range(len(rand_list)):
-        if rand_list[i] != user_list[i]:
-            return False
-
-    return True
+    return all(x == y for x, y in zip(rand_list, user_list))
