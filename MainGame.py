@@ -40,17 +40,6 @@ def load_game():
             pass
         print("Invalid level. Please enter a number between 1 and 5: ")
 
-    # if choice == 1:
-    #     if MemoryGame.play(level):
-    #         Score.add_score(level)
-    #
-    # elif choice == 2:
-    #     if GuessGame.play(level):
-    #         Score.add_score(level)
-    # else:
-    #     if CurrencyRouletteGame.play(level):
-    #         Score.add_score(level)
-
     play_game(choice, level)
 
 
