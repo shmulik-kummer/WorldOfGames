@@ -5,6 +5,7 @@
 import os
 import random
 import time
+import Utils
 
 
 def play(difficulty):
@@ -16,7 +17,7 @@ def play(difficulty):
     # Display the list of numbers for 0.7 seconds
     print(f"The list of numbers are: {rand_numbers} ")
     time.sleep(0.7)
-    os.system('cls' if os.name == 'nt' else 'clear')
+    Utils.Screen_cleaner()
 
     # Ask the user to input the numbers
     user_numbers = get_list_from_user(difficulty)

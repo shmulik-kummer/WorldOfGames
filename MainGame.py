@@ -1,6 +1,7 @@
 import CurrencyRouletteGame
 import GuessGame
 import MemoryGame
+import Score
 
 
 def welcome(name: str) -> str:
@@ -39,12 +40,29 @@ def load_game():
             pass
         print("Invalid level. Please enter a number between 1 and 5: ")
 
-    if choice == 1:
-        MemoryGame.play(level)
-    elif choice == 2:
-        GuessGame.play(level)
-    else:
-        CurrencyRouletteGame.play(level)
+    # if choice == 1:
+    #     if MemoryGame.play(level):
+    #         Score.add_score(level)
+    #
+    # elif choice == 2:
+    #     if GuessGame.play(level):
+    #         Score.add_score(level)
+    # else:
+    #     if CurrencyRouletteGame.play(level):
+    #         Score.add_score(level)
+
+    play_game(choice, level)
+
+
+def play_game(choice, level):
+    game_functions = {
+        1: MemoryGame.play,
+        2: GuessGame.play,
+        3: CurrencyRouletteGame.play
+    }
+    result = game_functions[choice](level)
+    if result:
+        Score.add_score(level)
 
 
 print(welcome("Shmulik"))

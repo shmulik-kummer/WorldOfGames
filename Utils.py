@@ -1,4 +1,6 @@
-SCORES_FILE_NAME = "scores.txt"
+import os
+
+SCORES_FILE_NAME = "Scores.txt"
 BAD_RETURN_CODE = ""
 
 
@@ -6,6 +8,6 @@ def Screen_cleaner():
     """
     clear the screen
     """
-    pass
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
