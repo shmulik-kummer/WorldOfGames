@@ -24,4 +24,4 @@ def score_server():
     return html
 
 
-app.run()
+app.run(host="0.0.0.0")
