@@ -18,7 +18,7 @@ def score_server():
 <title>Scores Game</title>
 </head>
 <body>
-<h1>The score is {score_div}</h1>
+<h1>The score is: {score_div}</h1>
 </body>
 </html>"""
     return html
