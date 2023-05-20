@@ -26,8 +26,10 @@ pipeline {
 
         stage('Test') {
             steps {
+                wrap([$class: 'Xvfb']) {
                 sh 'python3 tests/e2e.py'
-            }
+        }
+    }
         }
 
         stage('Finalize') {

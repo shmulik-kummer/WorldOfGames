@@ -9,7 +9,7 @@ def test_scores_service(url):
 
     # Set up Selenium WebDriver
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # Add headless option
+    options.add_argument("--headless")
     service = Service(chrome_driver_path)
     driver = webdriver.Chrome(service=service, options=options)
 
