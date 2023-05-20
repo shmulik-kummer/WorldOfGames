@@ -9,7 +9,7 @@ def test_scores_service(url):
 
     # Set up Selenium WebDriver
     options = Options()
-    options.headless = True  # Run in headless mode (no visible browser window)
+    options.add_argument("--headless")  # Add headless option
     driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
     try:
