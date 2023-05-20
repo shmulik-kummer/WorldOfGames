@@ -1,12 +1,11 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
 
 def test_scores_service(url):
-    chrome_driver_path = 'home/kummer/Documents/chromedriver'
+    chrome_driver_path = '/home/kummer/Documents/chromedriver'
 
     # Set up Selenium WebDriver
     options = webdriver.ChromeOptions()
