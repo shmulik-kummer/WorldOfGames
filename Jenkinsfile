@@ -20,7 +20,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'docker run -d -p 8777:8777 -v $(pwd)/Scores.txt:/app/Scores.txt myapp'
+                sh 'docker run -d -p 8777:5000 -v $(pwd)/Scores.txt:/app/Scores.txt myapp'
             }
         }
 
