@@ -10,6 +10,8 @@ def test_scores_service(url):
     # Set up Selenium WebDriver
     options = Options()
     options.add_argument("--headless")  # Add headless option
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
     try:
