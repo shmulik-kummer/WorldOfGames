@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
@@ -8,9 +9,10 @@ def test_scores_service(url):
     chrome_driver_path = 'home/kummer/Documents/chromedriver'
 
     # Set up Selenium WebDriver
-    options = Options()
+    options = webdriver.ChromeOptions()
     options.add_argument("--headless")  # Add headless option
-    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
+    service = Service(chrome_driver_path)
+    driver = webdriver.Chrome(service=service, options=options)
 
     try:
         # Open the URL in the browser
