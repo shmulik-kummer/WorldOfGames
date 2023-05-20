@@ -42,4 +42,4 @@ def test_service(url):
         return -1
 
 
-test_service("http://localhost:5000")
+test_service("http://localhost:8777")
