@@ -11,7 +11,8 @@ pipeline {
                     userRemoteConfigs: [[url: 'https://github.com/shmulik-kummer/WorldOfGames.git']]
                 ])
             }
-        
+        }
+
         // Build the docker image
         stage('Build') {
             steps {
@@ -32,7 +33,7 @@ pipeline {
         }
     }
         }
-        
+
         stage('Finalize') {
             steps {
                 // Stop the running container
@@ -47,5 +48,4 @@ pipeline {
                 }}
         }
     }
-}
 }
