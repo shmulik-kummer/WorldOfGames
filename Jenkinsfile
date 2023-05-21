@@ -36,7 +36,6 @@ pipeline {
             steps {
                 sh 'docker stop $(docker ps -q --filter ancestor=myapp)'
                 sh 'docker tag myapp kummer/myapp'
-                sh 'docker login'
                 sh 'docker push kummer/myapp'
             }
         }
