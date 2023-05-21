@@ -6,11 +6,14 @@ WORKDIR /app
 COPY MainScores.py /app/MainScores.py
 COPY Utils.py /app/Utils.py
 
+# Copy the requirements.txt file
+COPY requirements.txt /app/requirements.txt
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
 # Copy the scores.txt file
 COPY Scores.txt /app/Scores.txt
-
-# Install Flask and any other dependencies
-RUN pip install flask
 
 # Set the Flask script as the entry point
 CMD ["python", "MainScores.py"]
