@@ -2,7 +2,6 @@
 # seconds and then prompt them from the user for the numbers that he remember. If he was right
 # with all the numbers the user will win otherwise he will lose.
 
-import os
 import random
 import time
 import Utils
