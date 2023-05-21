@@ -38,6 +38,7 @@ pipeline {
                 sh 'docker tag myapp kummer/myapp'
                 withDockerRegistry([credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/']) {
                     sh 'docker push kummer/myapp'
+                }
             }
         }
     }
