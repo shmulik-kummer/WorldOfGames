@@ -36,7 +36,7 @@ pipeline {
             steps {
                 sh 'docker stop $(docker ps -q --filter ancestor=myapp)'
                 sh 'docker tag myapp kummer/myapp'
-                withDockerRegistry([credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/']) {
+                docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                     sh 'docker push kummer/myapp'
                 }
             }
